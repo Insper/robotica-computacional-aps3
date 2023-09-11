@@ -1,9 +1,17 @@
-# APS 3
+# APS 2:
 
-Esta APS possui 3 partes:
-- Parte 1: Detecção de retas (5 pontos)
-- Parte 2: Uso de redes neurais (5 pontos)
-- Parte 3: Questão desafio (2 pontos, se tiver feito os dois primeiros correto)
+## Integrantes do grupo:
 
-A correção automática só funciona para as duas primeiras partes, porém a questão desafio deve ser entregue junto.
+**nome 1:**
 
+**email 1:**
+
+**nome 2:**
+
+**email 2:**
+
+## Link de vídeos do youtube (quando houver):
+
+**Link 1**
+
+**Link 2**

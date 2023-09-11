@@ -159,4 +159,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-./config/*
+config/
+config/MOVA OS ARQUIVOS DO MODULO 3 PARA ESTE DIRETORIO.txt

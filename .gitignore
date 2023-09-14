@@ -162,3 +162,5 @@ cython_debug/
 config/
 config/MOVA OS ARQUIVOS DO MODULO 3 PARA ESTE DIRETORIO.txt
 *_.py
+*/anm_aux/*
+*.mp4

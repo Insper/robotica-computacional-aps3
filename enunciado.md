@@ -137,12 +137,7 @@ ___
 
 
 # Exercício 2
-ARUCO ARUCO
-___
-
-
-# Exercício 3
-Trabalhe no arquivo `ex3.py`. 
+Trabalhe no arquivo `ex2.py`. 
 
 Você vai notar que este programa roda o vídeo `dominoes.mp4`. Baixe o vídeo [neste endereço](https://github.com/Insper/robot20/raw/master/media/dominoes.mp4)
 
@@ -156,6 +151,20 @@ Um programa que escreve *na tela* o valor da peça de dominó que aparece a cada
 Por exemplo para a peça acima, deve escrever **5 por 3**
 
 Grave um video da saída, publique no Youtube e escreva o link no arquivo `README.md` do seu repositório.
+___
+
+
+# Exercício 3
+Neste exercício vamos explorar mais o uso do detector Aruco.
+Na imagem abaixo temos um onde o robô real está olhando para os "creepers". Neste contexto, um creeper é um marcador Aruco com um corpo de uma cor, "creepers" de mesma cor tem ids diferentes.
+
+![Creeper](fig/aruco.jpg)
+
+Voce deve trabalhar no arquivo `ex3.py` e implementar a classe `DistanceEstimator` que vai herdar a classe `ArucoDetector` e da classe `ImageModule`. A função `run` detectar os "creepers" e e calcular o centros dos corpos de cada um deles.
+
+Por fim, deve associar os marcadores aruco com os corpos dos "creepers" e então rankear os "creepers" de acordo com a distância até o robô.
+
+
 ___
 
 

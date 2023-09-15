@@ -150,7 +150,7 @@ Um programa que escreve *na tela* o valor da peça de dominó que aparece a cada
 
 Por exemplo para a peça acima, deve escrever **5 por 3**
 
-Grave um video da saída, publique no Youtube e escreva o link no arquivo `README.md` do seu repositório.
+**Grave um video** da saída, publique no Youtube e escreva o link no arquivo `README.md` do seu repositório.
 ___
 
 
@@ -163,6 +163,8 @@ Na imagem abaixo temos um onde o robô real está olhando para os "creepers". Ne
 Voce deve trabalhar no arquivo `ex3.py` e implementar a classe `DistanceEstimator` que vai herdar a classe `ArucoDetector` e da classe `ImageModule`. A função `run` detectar os "creepers" e e calcular o centros dos corpos de cada um deles.
 
 Por fim, deve associar os marcadores aruco com os corpos dos "creepers" e então rankear os "creepers" de acordo com a distância até o robô.
+
+**Grave um video** com o resultado mostrando uma linha ligando o centro do marcador aruco ao centro do corpo do "creeper" e o id do "creeper" e coloque o link do video no arquivo `README.md` do seu repositório.
 
 
 ___
@@ -230,5 +232,5 @@ Para isso você deve:
 4. No caso de um dos dois cachorros ainda não foram encontrados, a função `first_detection` deve implementar o **Caso 1** e o **Caso 2**;
 5. No caso de ambos os cachorros já foram encontrados, a função `update_tracking` deve implementar o **Caso 3**;
 6. A função `update_2dogs` verufica se há uma segunda detecção e associa a detecção ao outro cachorro, definido pela variável `key`;
-7. A função `plot_last_detections` desenha as últimas 3 detecções de cada cachorro na imagem. Representado pelas ultimas 3 caixas (se estirem) e uma linha ligando o centro das caixas. Você não precisa implementar essa função, mas entenda como ela funciona;
-8. Grave um video com o resultado do seu código e coloque o link no arquivo `README.md` do seu repositório.
+7. A função `plot_last_detections` desenha as últimas 3 detecções de cada cachorro na imagem. Representado pelas ultimas 3 caixas (se existirem) e uma linha ligando o centro das caixas. Você não precisa implementar essa função, mas entenda como ela funciona;
+8. **Grave um video** com o resultado do seu código e coloque o link no arquivo `README.md` do seu repositório.

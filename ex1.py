@@ -77,7 +77,7 @@ def rodar_frame():
     
     bgr = cv2.imread("img/frame01.jpg") # Escolha aqui a imagem que deseja usar para testar
 
-    img = RodaAtividade.run(bgr)
+    img, point = RodaAtividade.run(bgr)
 
     cv2.imshow("Imagem", img)
     cv2.waitKey(0)

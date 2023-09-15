@@ -135,6 +135,8 @@ Lembre-se de que na OpenCV o eixo y fica **para baixo**, por isso os coeficiente
 ![Valores de coeficiente angular](fig/coeficientes_m.png)
 ___
 
+**Saída esperada:** (515, 326)
+
 
 # Exercício 2
 Trabalhe no arquivo `ex2.py`. 

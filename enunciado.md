@@ -136,8 +136,25 @@ Lembre-se de que na OpenCV o eixo y fica **para baixo**, por isso os coeficiente
 ___
 
 
-# Exercício 4
+# Exercício 3
+Trabalhe no arquivo `ex3.py`. 
 
+Você vai notar que este programa roda o vídeo `dominoes.mp4`. Baixe o vídeo [neste endereço](https://github.com/Insper/robot20/raw/master/media/dominoes.mp4)
+
+<img src="./parte3/domino.jpg" width=35%>
+
+
+#### O que você deve fazer:
+
+Um programa que escreve *na tela* o valor da peça de dominó que aparece a cada frame do vídeo. 
+
+Por exemplo para a peça acima, deve escrever **5 por 3**
+
+Grave um video da saída, publique no Youtube e escreva o link no arquivo `README.md` do seu repositório.
+___
+
+
+# Exercício 4
 Neste exercício vamos utilizar as detecções da mobilenet em um problema de 'multi-object-tracking'. Em visão computacional, tracking é o processo de identificar e rastrear objetos em movimento em uma sequência de imagens. O problema fica mais complexo quando temos mais de um objeto em movimento, pois precisamos identificar qual objeto é qual em cada frame.
 
 Vocês vão trabalhar no arquivo `ex2.py` e implementar a classe `DogTracker` que vai herdar a classe `MobileNetDetector` e a cada frame vai armazenar as posições de cada um dos dois cachorros presentes no video `dogs.wmv`.
@@ -201,7 +218,3 @@ Para isso você deve:
 6. A função `update_2dogs` verufica se há uma segunda detecção e associa a detecção ao outro cachorro, definido pela variável `key`;
 7. A função `plot_last_detections` desenha as últimas 3 detecções de cada cachorro na imagem. Representado pelas ultimas 3 caixas (se estirem) e uma linha ligando o centro das caixas. Você não precisa implementar essa função, mas entenda como ela funciona;
 8. Grave um video com o resultado do seu código e coloque o link no arquivo `README.md` do seu repositório.
-
-
-
-

@@ -1,4 +1,4 @@
-from module_ import ImageModule
+from module import ImageModule
 import cv2
 import numpy as np
 

@@ -1,56 +1,60 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Este NÃO é um programa ROS
-
 from __future__ import print_function, division 
 
 import cv2
 import os,sys, os.path
 import numpy as np
+from module import ImageModule
 
-print("Rodando Python versão ", sys.version)
-print("OpenCV versão: ", cv2.__version__)
-print("Diretório de trabalho: ", os.getcwd())
+class ClassificaDominoes(None):# Essa classe deve herdar da classe ImageModule
+    def __init__(self):
+        # Inicializar a classe pai
 
-# Arquivos necessários
-# Baixe o arquivo em:
-# https://media.githubusercontent.com/media/Insper/robot20/master/media/dominoes.mp4
+        # Configure o kernel para operações morfológicas
+
+        self.lower = None
+        self.upper = None
+
+
+    def run(self, bgr: np.ndarray):
+        """Recebe o frame atual em BGR e verifica o valor do domino no frame. 
+        Retorna o frame com o valor do domino e o valor do domino em texto.
+
+        Args:
+            bgr (np.ndarray): Frame atual em BGR
+
+        Returns:
+            bgr: Imagem com o valor do domino
+            texto: Valor do domino em texto no formato "x por y"
+        """
+        texto = f"{None} por {None}"
     
-video = "dominoes.mp4"
+        return bgr, texto
 
+
+def rodar_video():
+    Dominoes = ClassificaDominoes()
+
+    cap = cv2.VideoCapture('img/dominoes.mp4') # Confira se o video esta na pasta img
+
+    while(cap.isOpened()):
+        ret, frame = cap.read()
+
+        if ret == True:
+            frame = Dominoes.run(frame)
+
+            cv2.imshow('Frame',frame)
+
+            if cv2.waitKey(10) & 0xFF == ord('q'): # !!! Pressione q para sair
+                break
+        else:
+            break
+            
+def main():
+    # Selecione se deseja rodar seu codigo com uma imagem ou um video:
+    rodar_video()
 
 if __name__ == "__main__":
-
-    # Inicializa a aquisição da webcam
-    cap = cv2.VideoCapture(video)
-
-
-    print("Se a janela com a imagem não aparecer em primeiro plano dê Alt-Tab")
-
-    while(True):
-        # Capture frame-by-frame
-        ret, frame = cap.read()
-        
-        if ret == False:
-            #print("Codigo de retorno FALSO - problema para capturar o frame")
-            cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-            continue
-            #sys.exit(0)
-
-        # Our operations on the frame come here
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-
-        # NOTE que em testes a OpenCV 4.0 requereu frames em BGR para o cv2.imshow
-        cv2.imshow('imagem', frame)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    # When everything done, release the capture
-    cap.release()
-    cv2.destroyAllWindows()
-
-
+    main()

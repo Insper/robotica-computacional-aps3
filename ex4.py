@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import math
 import os
-from module_net_ import MobileNetDetector
+from module_net import MobileNetDetector
 
 class DogTracker(MobileNetDetector):
     def __init__(self):

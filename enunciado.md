@@ -136,12 +136,17 @@ Lembre-se de que na OpenCV o eixo y fica **para baixo**, por isso os coeficiente
 ___
 
 
+# Exercício 2
+ARUCO ARUCO
+___
+
+
 # Exercício 3
 Trabalhe no arquivo `ex3.py`. 
 
 Você vai notar que este programa roda o vídeo `dominoes.mp4`. Baixe o vídeo [neste endereço](https://github.com/Insper/robot20/raw/master/media/dominoes.mp4)
 
-<img src="./parte3/domino.jpg" width=35%>
+![Domino](img/domino.jpg)
 
 
 #### O que você deve fazer:

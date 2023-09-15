@@ -136,6 +136,72 @@ Lembre-se de que na OpenCV o eixo y fica **para baixo**, por isso os coeficiente
 ___
 
 
-# Exercício 2
+# Exercício 4
 
-Neste exercício vamos utilizar as detecções da mobilenet em um problema de 'tracking'. Em visão computacional, tracking é o processo de identificar e rastrear objetos em movimento em uma sequência de imagens.
+Neste exercício vamos utilizar as detecções da mobilenet em um problema de 'multi-object-tracking'. Em visão computacional, tracking é o processo de identificar e rastrear objetos em movimento em uma sequência de imagens. O problema fica mais complexo quando temos mais de um objeto em movimento, pois precisamos identificar qual objeto é qual em cada frame.
+
+Vocês vão trabalhar no arquivo `ex2.py` e implementar a classe `DogTracker` que vai herdar a classe `MobileNetDetector` e a cada frame vai armazenar as posições de cada um dos dois cachorros presentes no video `dogs.wmv`.
+
+## Teoria
+
+Para facilitar o problema, nesta disciplina vamos assumir que os objetos não se sobrepõem, ou seja, não há ocultação. Além disso, vamos assumir que conhecemos o número de objetos que queremos rastrear.
+
+### Detecções
+
+Observe a imagem abaixo:
+
+![Tracking](fig/tracking.png)
+Cada quadrado representa uma detecção. As detecções são associadas aos objetos de acordo com a proximidade entre elas. Note que foram encontradas 2 detecções, representadas pelo nome da classe e a probabilidade de acerto. 
+
+Devido a limitações do detector, uma delas é o frame da imagem, representada pela classe 'tvmonitor'. A outra é um dos cachorros, mas está representada pela classe 'bird'.
+
+Na função `run` da classe `DogTracker` você deve primeiro limpar deteções que são 'tvmonitor' e depois associar as deteções restantes aos cachorros. Se não houver deteções, deve retornar apenas a imagem original. Como no exemplo abaixo:
+
+```python
+    bgr, out = self.detect(bgr)
+    dogs = [det for det in out if det[0] != 'tvmonitor']
+    if len(dogs) == 0:
+        return bgr
+```
+
+
+### Armazenando as detecções
+
+O uso de dicionarios ajuda a armazenar as detecções de cada objeto, `self.tracking`. Cada objeto é identificado por um id, que pode ser um número inteiro ou uma string. No caso dos cachorros, vamos usar os ids 'dogA' e 'dogB'.
+
+Então uma vez que reconhecemos um cachorro, podemos armazenar sua posição no dicionário `self.tracking` utilizando o metodo `.append()`.
+
+### Associando as detecções
+
+O desafio é associar as detecções de cada frame com os objetos que estamos rastreando. Para isso, vamos utilizar a distância euclidiana entre as detecções e as posições armazenadas no dicionário `self.tracking`.
+
+Temos 3 casos:
+
+#### Caso 1: Primeiro encontro
+Se o dicionário `self.tracking` para ambos os objetos estiver vazio armazenamos a detecção no primeiro cachorro `dogA`
+
+#### Caso 2: Apenas um cachorro foi encontrado
+Se temos uma deteção, mas apenas um cachorro foi encontrado, ou seja, `dogB` está vazio, definimos uma distância máxima para associar a detecção com o cachorro `dogA`. Se a distância entre a detecção e o `dogA` for menor que a distância máxima, associamos a detecção ao cachorro.
+
+#### Caso 3: Ambos os cachorros foram encontrados.
+A partir desse momento, vamos observar a primeira detecção e procurar qual cachorro está mais proximo. Se a distância entre a detecção e o `dogA` for menor que a distância entre a detecção e o `dogB`, associamos a detecção ao cachorro `dogA`. Caso contrário, associamos a detecção ao cachorro `dogB`.
+
+Se houver uma segunda detecção, associamos a detecção ao outro cachorro. Note que só podemos fazer essa associação porque estamos assumindo que não há ocultação e conhecemos o número de objetos que queremos rastrear.
+
+## Tarefa
+
+O objetivo deste exercicio é implementar a classe `DogTracker` que vai herdar a classe `MobileNetDetector` e a cada frame vai armazenar as posições de cada um dos dois cachorros presentes no video `dogs.wmv`.
+
+Para isso você deve:
+1. Implementar a função `bbox_center` que recebe uma detecção e retorna o centro da bounding box;
+2. Implementar a função `bbox_distance` que recebe duas detecções e retorna a distância euclidiana entre elas;
+3. A função `run` já está implementada para você. Entenda o que ela faz e como ela funciona;
+4. No caso de um dos dois cachorros ainda não foram encontrados, a função `first_detection` deve implementar o **Caso 1** e o **Caso 2**;
+5. No caso de ambos os cachorros já foram encontrados, a função `update_tracking` deve implementar o **Caso 3**;
+6. A função `update_2dogs` verufica se há uma segunda detecção e associa a detecção ao outro cachorro, definido pela variável `key`;
+7. A função `plot_last_detections` desenha as últimas 3 detecções de cada cachorro na imagem. Representado pelas ultimas 3 caixas (se estirem) e uma linha ligando o centro das caixas. Você não precisa implementar essa função, mas entenda como ela funciona;
+8. Grave um video com o resultado do seu código e coloque o link no arquivo `README.md` do seu repositório.
+
+
+
+

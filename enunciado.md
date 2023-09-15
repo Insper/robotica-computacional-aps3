@@ -137,3 +137,5 @@ ___
 
 
 # Exercício 2
+
+Neste exercício vamos utilizar as detecções da mobilenet em um problema de 'tracking'. Em visão computacional, tracking é o processo de identificar e rastrear objetos em movimento em uma sequência de imagens.

@@ -12,8 +12,6 @@
 
 ## Link de vídeos do youtube (quando houver):
 
-**Link 1**
-
 **Link 2**
 
 **Link 3**

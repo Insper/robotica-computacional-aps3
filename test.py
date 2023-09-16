@@ -114,3 +114,41 @@ def test_ex3():
     }
     print(result)
     check_ex3(result)
+
+##############################################################################################################
+
+def run_blank_4(RodaAtividade):
+    bgr = np.zeros((400,400,3), dtype=np.uint8)
+    with patch('cv2.imshow'):
+        try:
+            bgr, texto = RodaAtividade.run(bgr)
+        except Exception as e:
+            return {'error': e, 'traceback': traceback.format_exc().splitlines()[-2:-1]}
+        
+    return True
+def run_ex4(RodaAtividade, fname):
+    from ex4_ import DogTracker
+    RodaAtividade = DogTracker()
+    bgr = cv2.imread(fname)
+    with patch('cv2.imshow'):
+        bgr, texto = RodaAtividade.run(bgr)
+    return {'texto':texto}
+
+def check_ex4(result):
+        assert result['domino1']['texto'] == '2 por 6', "Valor do domino esta fora do esperado para a imagem domino.jpg"
+        if result['blank'] is True:
+            pass
+        elif str(result['blank']['error']) == "list index out of range":
+            assert False, "Seu codigo deve ser robusto a ausencia de circulo"
+        else:
+            assert False, "Ocorreu um erro inesperado ao rodar seu codigo com uma imagem em branco - {0} - {1}".format(result['blank']['traceback'], result['blank']['error'])
+def test_ex4():
+    from ex4_ import DogTracker
+    RodaAtividade = DogTracker()
+
+    result = {
+        'blank': run_blank_4(RodaAtividade),
+        'domino1': run_ex4(RodaAtividade, 'img/domino.jpg'),
+    }
+    print(result)
+    check_ex4(result)

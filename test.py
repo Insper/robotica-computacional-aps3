@@ -65,7 +65,7 @@ def check_ex2(result):
         else:
             assert False, "Ocorreu um erro inesperado ao rodar seu codigo com uma imagem em branco - {0} - {1}".format(result['blank']['traceback'], result['blank']['error'])
 def test_ex2():
-    from ex2_ import ClassificaDominoes
+    from ex2 import ClassificaDominoes
     RodaAtividade = ClassificaDominoes()
 
     result = {
@@ -104,7 +104,7 @@ def check_ex3(result):
         else:
             assert False, "Ocorreu um erro inesperado ao rodar seu codigo com uma imagem em branco - {0} - {1}".format(result['blank']['traceback'], result['blank']['error'])
 def test_ex3():
-    from ex3_ import DistanceEstimator
+    from ex3 import DistanceEstimator
     RodaAtividade = DistanceEstimator()
 
     result = {
@@ -143,7 +143,7 @@ def check_ex4(result):
         else:
             assert False, "Ocorreu um erro inesperado ao rodar seu codigo com uma imagem em branco - {0} - {1}".format(result['blank']['traceback'], result['blank']['error'])
 def test_ex4():
-    from ex4_ import DogTracker
+    from ex4 import DogTracker
     RodaAtividade = DogTracker()
     result = {
         'blank': run_blank_4(RodaAtividade),

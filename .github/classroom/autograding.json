@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "install",
+      "setup": "sudo -H pip3 install pytest opencv-contrib-python scikit-learn",
+      "run": "git clone https://github.com/insper-education/robcomp-config.git && mv robcomp-config/* config/ && cd config/ && ls",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "ex1",
+      "setup": "",
+      "run": "pytest test.py::test_ex1",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "ex2",
+      "setup": "",
+      "run": "pytest test.py::test_ex2",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "ex3",
+      "setup": "",
+      "run": "pytest test.py::test_ex3",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "ex4",
+      "setup": "",
+      "run": "pytest test.py::test_ex4",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}

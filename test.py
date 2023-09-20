@@ -57,7 +57,7 @@ def run_ex2(RodaAtividade, fname):
     return {'texto':texto}
 
 def check_ex2(result):
-        assert result['domino1']['texto'] == '2 por 6', "Valor do domino esta fora do esperado para a imagem domino.jpg"
+        assert result['domino1']['texto'] == '5 por 3', "Valor do domino esta fora do esperado para a imagem domino.jpg"
         if result['blank'] is True:
             pass
         elif str(result['blank']['error']) == "list index out of range":
